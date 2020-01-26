@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Jumbotron, Button, Row, Container, } from 'reactstrap'
+import { Jumbotron, Button, Container, } from 'reactstrap'
 import Featured from './Featured'
-import Section from './Section'
+// import Section from './Section'
 
 class Home extends Component {
     render() {
@@ -13,17 +13,16 @@ class Home extends Component {
                     <Button color="info">Learn More</Button>
                 </Jumbotron>
                 <Container>
-                    <Row>
+                <Featured />
+                    {/* <Row>
                         <div className="col-md-9">
                             <Featured />
                         </div>
                         <div className="col-md-2">
                             <Section />
                         </div>
-                    </Row>
+                    </Row> */}
                 </Container>
-
-
             </div>
         )
     }
