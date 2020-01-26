@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import {reduxForm, Field } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import * as actions from '../../actions/user.action'
 import CustomInputs from '../CustomInputs'
-
 import {
     Button,
     Form,
@@ -12,53 +10,39 @@ import {
     Col
 } from 'reactstrap'
 
-class Register extends Component {
+import * as actions from '../../actions/vendor.action'
 
+class VendorRegister extends Component {
     constructor(props) {
         super(props)
-
-        this.onSubmit = this.onSubmit.bind(this) 
+    
+       
     }
 
-    async onSubmit(formData){        
+    async onSubmit(formData){
         console.log('data', formData)
-        await this.props.signUp(formData)
-        if(!this.props.errorMessage) {
-            this.props.history.push('/verifyemail')
-        }     
-
     }
-
-     render() {
-        const { handleSubmit } = this.props;
+    
+    render() {
+        const {handleSubmit} = this.props
         return (
             <div>
-              <Form onSubmit={handleSubmit(this.onSubmit)}>
+                <Form onSubmit={handleSubmit(this.onSubmit)}>
                   <Row>
                       <Col m="12" md={{ size: 4, offset: 4 }}>
                       <fieldset>
                             <Field
-                                name="fname"
+                                name="vendorName"
                                 type="text"
-                                id="fname"
-                                label="FirstName"
-                                placeholder="Enter First Name"
+                                id="vendorName"
+                                label="VendorName"
+                                placeholder="Enter Company Name"
                                 component={CustomInputs}
                             />
-                        </fieldset>
+                        </fieldset>                        
                         <fieldset>
                             <Field
-                                name="lname"
-                                type="text"
-                                id="lname"
-                                label="LastName"
-                                placeholder="Enter Last Name"
-                                component={CustomInputs}
-                            />
-                        </fieldset>
-                        <fieldset>
-                            <Field
-                                name="email"
+                                name="vendorEmail"
                                 type="email"
                                 id="email"
                                 label="Email"
@@ -68,7 +52,7 @@ class Register extends Component {
                         </fieldset>
                         <fieldset>
                             <Field
-                                name="address"
+                                name="VendorAddress"
                                 type="text"
                                 id="address"
                                 label="Address"
@@ -78,7 +62,7 @@ class Register extends Component {
                         </fieldset>
                         <fieldset>
                             <Field
-                                name="contact"
+                                name="vendorContact"
                                 type="tel"
                                 id="contact"
                                 label="Contact No."
@@ -88,21 +72,20 @@ class Register extends Component {
                         </fieldset>
                         <fieldset>
                             <Field
-                                name="password"
-                                type="password"
-                                id="password"
-                                label="Password"
-                                placeholder="Enter your password"
+                                name="vendorLogo"
+                                type="file"
+                                id="vendorLogo"
+                                label="vendorLogo"                                
                                 component={CustomInputs}
                             />
                         </fieldset>
                         <fieldset>
                             <Field
-                                name="password2"
-                                type="password"
-                                id="password2"
-                                label="Confirm Password"
-                                placeholder="Re-enter your password"
+                                name="vendorDoc"
+                                type="file"
+                                id="vendorDoc"
+                                label="vendorDoc"
+                                className="form-control-file"                                
                                 component={CustomInputs}
                             />
                         </fieldset>
@@ -113,8 +96,7 @@ class Register extends Component {
                             </div>
                             : null}
 
-                        <Button type="submit" className="btn btn-info btn-block">Register</Button>
-                        <a href="/signin" className="btn btn-outline-info btn-block">Already Registered</a>
+                        <Button type="submit" className="btn btn-info btn-block">Submit</Button>
                       </Col>
                   </Row>                       
               </Form>
@@ -122,6 +104,7 @@ class Register extends Component {
         )
     }
 }
+
 function mapStateToProps(state) {
     return {
         errorMessage: state.user.errorMessage
@@ -131,4 +114,4 @@ function mapStateToProps(state) {
 export default compose(
     connect(mapStateToProps, actions),
     reduxForm({ form: 'signup' })
-)(Register)
+)(VendorRegister)

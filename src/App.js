@@ -18,6 +18,9 @@ import Gym from './components/User/Gym'
 import Venue from './components/User/Venue'
 import Resturant from './components/User/Resturant'
 import Register from './components/User/Register';
+import VerifyEmail from './components/VerifyEmail';
+import ContactUs from './components/ContactUs';
+import VendorRegister from './components/Vendor/VendorRegister';
 
 
 // const Main = withRouter(({ location }) => {
@@ -65,6 +68,12 @@ function App() {
               <PublicRoute exact path="/indoor" component={IndoorGames} />
               <PublicRoute exact path="/signin" component={Login} />
               <PublicRoute exact path="/signup" component={Register} />
+              <PublicRoute exact path="/contact" component={ContactUs} />
+              <PublicRoute expct path="/vendor/register" component={VendorRegister}/>
+
+              
+              <InvalidRoute path="/verifyemail" component={VerifyEmail} />
+
               {/* return to the 404 */}
               <InvalidRoute path="*" component={PageNotFound} />
             </Switch>

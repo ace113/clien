@@ -27,7 +27,7 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar color="info" dark expand="md" header={this.state.header}>
+            <Navbar color="info" dark expand="md" header={this.state.header} className="mb-5">
                 <NavbarBrand href='/'>Company Logo</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
@@ -47,13 +47,13 @@ class Header extends Component {
                     </Nav>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">SignIn</NavLink>
+                            <NavLink href="/signin">SignIn</NavLink>
                         </NavItem>
                         {/* <NavbarText>
                             |
                         </NavbarText> */}
                         <NavItem>
-                            <NavLink href="/">Become a Partner</NavLink>
+                            <NavLink href="/vendor/register">Become a Partner</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
