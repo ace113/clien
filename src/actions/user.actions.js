@@ -1,7 +1,8 @@
 import {
     USER_REGISTER,    
     ERROR,
-    USER_LOGIN
+    USER_LOGIN,
+    USER_SIGN_OUT
 } from './types'
 import axios from 'axios'
 
@@ -16,7 +17,7 @@ export const oauthGoogle = data => {
             payload: res.data.token
         })
 
-        // localStorage.setItem('JWT_TOKEN', res.data.token);
+        localStorage.setItem('JWT_TOKEN', res.data.token);
 
     }
 }
@@ -32,7 +33,7 @@ export const oauthFacebook = data => {
             payload: res.data.token
         })
 
-        // localStorage.setItem('JWT_TOKEN', res.data.token)
+        localStorage.setItem('JWT_TOKEN', res.data.token)
     }
 }
 
@@ -63,11 +64,26 @@ export const signin = data => {
                 type: USER_LOGIN,
                 payload: res.data.token
             })
+
+            localStorage.setItem('JWT_TOKEN', res.data.token)
+            
         } catch (error) {
             dispatch({
                 type: ERROR,
                 payload: 'Email or password is not correct'
             })
         }
+    }
+}
+
+export const signout = () => {
+    return async dispatch => {
+
+        localStorage.removeItem('JWT_TOKEN')
+
+        dispatch({
+            type: USER_SIGN_OUT,
+            payload: ''
+        })
     }
 }

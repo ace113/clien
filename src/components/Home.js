@@ -1,16 +1,88 @@
 import React, { Component } from 'react'
-import { Jumbotron } from 'reactstrap'
+import {
+    Jumbotron,
+    Card,
+    // CardHeader,
+    Button,
+    CardBody,
+    CardText,
+    CardTitle,
+    Container,
+    Row,
+    // Col
+} from 'reactstrap'
+import { connect } from 'react-redux'
+import * as action from '../actions/home.actions'
+import Carousel from './Carousel'
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            data: []
+        }
+        this.componentDidMount = this.componentDidMount.bind(this)
+
+    }
+
+    componentDidMount() {
+        this.props.getdata();
+
+    }
+
+
+
     render() {
+        const { data } = this.props
+
+        const serviceList = data.map((view, key) => {
+            return <Card style={{ width: '16rem' }} key={view._id} className="ml-4 mb-4 text-center shadow">
+                <img variant="top" src="holder.js/100px180" alt="" />
+                <CardBody>
+                    <CardTitle>{view.serviceName}</CardTitle>
+                    <CardText>
+                        {view.location}
+                    </CardText>
+                    <div>
+                        <Button color="info mb-2">Book Now</Button>
+                    </div>
+                    <div>                    
+                        <a href="/indoor/" className="btn btn-primary">View Details</a>
+                    </div>                   
+                </CardBody>
+            </Card>
+        })
+
         return (
             <div>
-                <Jumbotron>
+                {/* <Jumbotron>
                     <h1>This is home page</h1>
-                </Jumbotron>
+                </Jumbotron> */}
+                <Carousel/>
+                <Container>
+                    <div className="clearfix" style={{ padding: '.5rem' }}>
+                        <h4 className="float-left">Indoor Games</h4>
+                        <a href="/all" className="float-right">View All</a>
+                    </div>
+                    <Row>
+                        {serviceList}
+                    </Row>
+                </Container>
             </div>
         )
     }
 }
 
-export default Home
+function mapStateToProps(state) {
+
+    return {
+        errorMessage: state.home.errorMessage,
+        data: state.home.data
+    }
+
+
+}
+
+export default connect(mapStateToProps, action)(Home)

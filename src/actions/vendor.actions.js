@@ -6,7 +6,8 @@ import {
 
 const config = {
     headers: {
-        'content-type': 'multipart/form-data'
+        "Content-Type": "multipart/form-data",
+        "Accept": "application/json"
     }
 };
 
@@ -14,13 +15,13 @@ export const vendorRegister = data => {
     return async dispatch => {
         
         console.log('data:', data)
-        // const res = await axios.post('http://localhost:5000/vendors/register', data, config)
+        const res = await axios.post('http://localhost:5000/vendors/register', data, config)
 
-        // console.log(res)
+        console.log(res)
 
-        // dispatch({
-        //     type: VENDOR_REGISTER,
-        //     payload: res.data
-        // })
+        dispatch({
+            type: VENDOR_REGISTER,
+            payload: res.data
+        })
     }
 }

@@ -21,18 +21,23 @@ class VendorRegister extends Component {
             vendorEmail: null,
             vendorAddress: null,
             vendorContact: null,
-            // vendorLogo: null,
-            file: null
+            vendorLogo: null,
+            previewLogo: null
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        
-        const formData = new FormData();
-        formData.append('vendorLogo',this.state);       
+        // const data = this.state
+        let data = new FormData()
+        data.append('vendorLogo', this.state.vendorLogo)
+        data.append('vendorName', this.state.vendorName)
+        data.append('vendorEmail', this.state.vendorEmail)
+        data.append('vendorAddress', this.state.vendorAddress)
+        data.append('vendorContact', this.state.vendorContact)
+       
+        this.props.vendorRegister(data)
     
-        this.props.vendorRegister(formData)
     }
 
     handleChange = e => {
@@ -42,9 +47,10 @@ class VendorRegister extends Component {
         })
     }
 
-    handleFileChange = e => {  
+    handleFileChange = e => {          
         this.setState({
-            file: e.target.files[0]
+            vendorLogo: e.target.files[0],
+            previewLogo: URL.createObjectURL(e.target.files[0])
         })
     }
 
@@ -53,7 +59,7 @@ class VendorRegister extends Component {
             <div>
                 <Container>
                     <h4 className="text-center">Vendor Register</h4>
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={this.handleSubmit} encType="multipart/form-data">
                         <Row form>
                             <Col md={4}>
                                 <FormGroup>
@@ -64,7 +70,7 @@ class VendorRegister extends Component {
                                         onChange={this.handleFileChange}
                                     />
                                 </FormGroup>
-                                <img src={this.state.vendorLogo} style={{ width: '100px', height: '100px'}} alt="logo" />
+                                <img src={this.state.previewLogo} style={{ width: '100px', height: '100px'}} alt="logo" />
                             </Col>
                             <Col md={8}>
                                 <FormGroup>

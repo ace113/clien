@@ -11,6 +11,11 @@ import UserRegister from './components/users/UserRegister';
 import UserEmailConfirmation from './components/UserEmailConfirmation'
 import UserLogin from './components/users/UserLogin';
 import VendorRegister from './components/vendors/VendorRegister';
+import Indoor from './components/Indoor';
+import Gym from './components/Gym';
+import Venue from './components/Venue';
+import Resturant from './components/Resturant';
+
 
 
 // HOc to routes
@@ -44,6 +49,11 @@ function App() {
           <PublicRoute path="/user/register" component={UserRegister}/>
           <PublicRoute path="/user/login" component={UserLogin}/>
           <PublicRoute path="/vendor/register" component={VendorRegister}/>
+          <PublicRoute path="/indoor/" component={Indoor} />
+          <PublicRoute path="/gym/" component={Gym} />
+          <PublicRoute path="/venue/" component={Venue} />
+          <PublicRoute path="/resturant/" component={Resturant} />
+          
           
           <InvalidRoute path="/verifyemail" component={UserEmailConfirmation}/>
 

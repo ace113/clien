@@ -1,0 +1,12 @@
+ul{
+    list-style-type: none;
+}
+
+li {
+    font-size: 14px;
+    color: lightgray;
+}
+
+li:first-child {
+    color: white;
+}
