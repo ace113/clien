@@ -48,18 +48,26 @@ class Footer extends Component {
                             <li>Privacy Policy</li>
                         </ul>
                     </Col>
-                    <Col md={3}>
+                    <Col md={3}>                        
+                        <ul>
+                            <li><h6>COMPANY</h6></li>
+                            <li>Contact Us</li>
+                            <li>About Us</li>
+                        </ul>                        
+                        <br />
                         <ul>
                             <li><h6>PAYMENT OPTIONS</h6></li>
+                            <br />
                             <li>
                                 <img
                                     src="https://1.bp.blogspot.com/-cOpncwOZ2sM/VdbAtf3pxlI/AAAAAAAAAKE/FX2nWmG1ZWo/s1600/esewa.png"
                                     alt="esewa"
                                     style={{ width: '80px' }}
                                 />
-                            </li>
+                                &nbsp; &nbsp; &nbsp;
+                            {/* </li>
                             <li></li>
-                            <li>
+                            <li> */}
                                 <img
                                     src="https://blog.khalti.com/wp-content/uploads/2019/09/khalti-logo.png"
                                     alt="esewa"
@@ -67,14 +75,7 @@ class Footer extends Component {
                                 />
                             </li>
                         </ul>
-                        <br />
-                        <ul>
-                            <li><h6>COMPANY</h6></li>
-                            <li>Contact Us</li>
-                            <li>About Us</li>
-                        </ul>
                     </Col>
-
                 </Row>
                 <hr />
                 <Row>

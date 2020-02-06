@@ -21,7 +21,7 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            data: []
+            // data: []
         }
         this.componentDidMount = this.componentDidMount.bind(this)
 
@@ -43,13 +43,13 @@ class Home extends Component {
                 <CardBody>
                     <CardTitle>{view.serviceName}</CardTitle>
                     <CardText>
-                        {view.location}
+                        <small>{view.location}</small>
                     </CardText>
                     <div>
                         <Button color="info mb-2">Book Now</Button>
-                    </div>
+                    </div>                    
                     <div>                    
-                        <a href="/indoor/" className="btn btn-primary">View Details</a>
+                        <a href="#" className="btn btn-primary">View Details</a>
                     </div>                   
                 </CardBody>
             </Card>
@@ -60,10 +60,13 @@ class Home extends Component {
                 {/* <Jumbotron>
                     <h1>This is home page</h1>
                 </Jumbotron> */}
-                <Carousel/>
+               
+                <Carousel />
+                
+                
                 <Container>
                     <div className="clearfix" style={{ padding: '.5rem' }}>
-                        <h4 className="float-left">Indoor Games</h4>
+                        <h4 className="float-left">Featured</h4>
                         <a href="/all" className="float-right">View All</a>
                     </div>
                     <Row>

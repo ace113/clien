@@ -99,7 +99,7 @@ class TopNav extends Component {
                                             <Avatar color={Avatar.getRandomColor('sitebase', ['red', 'green', 'blue'])} name="Prajwal Maharjan" size="30" round={true} />
                                         </DropdownToggle>
                                         <DropdownMenu right>
-                                            <DropdownItem>Dashboard</DropdownItem>
+                                            <DropdownItem><a href="/user/dashboard" className="text-decoration-none text-reset">Dashboard</a></DropdownItem>
                                             <DropdownItem divider />
                                             <DropdownItem>My Bookings</DropdownItem>
                                             <DropdownItem divider />

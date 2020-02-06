@@ -28,7 +28,7 @@ const items = [
 export default function Carousel() {
     return (
         <div>
-            <UncontrolledCarousel items={items} style={{ height: '200px'}}/>
+            <UncontrolledCarousel items={items} className="mb-5"/>
         </div>
     )
 }

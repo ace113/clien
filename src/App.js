@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import userAuthGuard from './components/HOCs/UserAuthGuard'
 
 import './App.css';
 import TopNav from './components/common/TopNav';
@@ -15,6 +16,7 @@ import Indoor from './components/Indoor';
 import Gym from './components/Gym';
 import Venue from './components/Venue';
 import Resturant from './components/Resturant';
+import Dashboard from './components/users/Dashboard';
 
 
 
@@ -53,6 +55,7 @@ function App() {
           <PublicRoute path="/gym/" component={Gym} />
           <PublicRoute path="/venue/" component={Venue} />
           <PublicRoute path="/resturant/" component={Resturant} />
+          <PublicRoute path="/user/dashboard" component={userAuthGuard(Dashboard)}/>
           
           
           <InvalidRoute path="/verifyemail" component={UserEmailConfirmation}/>
