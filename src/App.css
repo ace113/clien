@@ -4,10 +4,10 @@ ul{
 
 li {
     font-size: 14px;
-    color: lightgray;
+    /* color: lightgray; */
 }
-
+/* 
 li:first-child {
     color: white;
 }
-
+ */

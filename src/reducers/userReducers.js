@@ -2,14 +2,16 @@ import {
     USER_LOGIN,
     USER_REGISTER,
     ERROR,
-    USER_SIGN_OUT
+    USER_SIGN_OUT,
+    GET_USER_INFO
 } from '../actions/types'
 
 const DEFAULT_STATE = {
     isAuthenticated: false,
     token: '',
     errorMessage: '',
-    message: ''
+    message: '',
+    userinfo: ''
 }
 
 export default (state = DEFAULT_STATE, action) => {
@@ -20,6 +22,8 @@ export default (state = DEFAULT_STATE, action) => {
             return { ...state, token: action.payload, isAuthenticated: true, errorMessage: '' }
         case USER_SIGN_OUT:
             return { ...state, token: action.payload, isAuthenticated: false, errorMessage: '' }
+        case GET_USER_INFO: 
+            return { ...state, userinfo: action.payload, isAuthenticated: true, errorMessage: ''}        
         case ERROR:
             return { ...state, errorMessage: action.payload }
         default:

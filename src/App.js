@@ -17,6 +17,8 @@ import Gym from './components/Gym';
 import Venue from './components/Venue';
 import Resturant from './components/Resturant';
 import Dashboard from './components/users/Dashboard';
+// import Catagory from './components/Catagory';
+
 
 
 
@@ -51,11 +53,14 @@ function App() {
           <PublicRoute path="/user/register" component={UserRegister}/>
           <PublicRoute path="/user/login" component={UserLogin}/>
           <PublicRoute path="/vendor/register" component={VendorRegister}/>
+          {/* <PublicRoute path="/:catagory" component={Catagory} /> */}
+
           <PublicRoute path="/indoor/" component={Indoor} />
-          <PublicRoute path="/gym/" component={Gym} />
+          <PublicRoute path="/fitness/" component={Gym} />
           <PublicRoute path="/venue/" component={Venue} />
-          <PublicRoute path="/resturant/" component={Resturant} />
+          <PublicRoute path="/resturant/" component={Resturant} /> 
           <PublicRoute path="/user/dashboard" component={userAuthGuard(Dashboard)}/>
+ 
           
           
           <InvalidRoute path="/verifyemail" component={UserEmailConfirmation}/>

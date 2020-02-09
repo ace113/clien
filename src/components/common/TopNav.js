@@ -35,12 +35,17 @@ class TopNav extends Component {
         }
 
         this.handleOnClick = this.handleOnClick.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
 
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         })
+    }
+
+    componentDidMount(){
+        this.props.getCatagory()
     }
 
     // dropToggle = () => {
@@ -54,13 +59,25 @@ class TopNav extends Component {
     }
 
     render() {
+
+        const { catagory } = this.props
+
+        const catagorylist = catagory.map((cata, key)=>{
+            return  <NavItem className="ml-2 mr-2" key={cata._id}>
+            <NavLink href={cata.catagoryName}>{cata.catagoryName}</NavLink>
+        </NavItem>
+        } 
+        )
+        
         return (
-            <Navbar color="info" dark expand="md" header={this.state.header} className="shadow-lg navbar sticky-top">
+            <div>
+                <Navbar color="info" dark expand="md" header={this.state.header} className="shadow-lg navbar sticky-top">
                 <NavbarBrand href='/' className="ml-2 mr-3">Company Logo</NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" pills navbar>
-                        <NavItem className="ml-2 mr-2">
+                        {catagorylist}
+                        {/* <NavItem className="ml-2 mr-2">
                             <NavLink href="/indoor"><GiFootyField size={30} /> Indoor</NavLink>
                         </NavItem>
                         <NavItem className="ml-2 mr-2">
@@ -71,7 +88,7 @@ class TopNav extends Component {
                         </NavItem>
                         <NavItem className="ml-2 mr-2">
                             <NavLink href="/resturant"><IoIosRestaurant size={30} /> Resturant</NavLink>
-                        </NavItem>
+                        </NavItem> */}
                     </Nav>
                     <Nav className="ml-auto" navbar>
                         {!this.props.isAuth ?
@@ -109,16 +126,18 @@ class TopNav extends Component {
                                 </NavItem>
                             ] : null
                         }
-                    </Nav>
-                </Collapse>
-            </Navbar>
+                    </Nav>                   
+                </Collapse>               
+            </Navbar>            
+            </div>            
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        isAuth: state.user.isAuthenticated
+        isAuth: state.user.isAuthenticated,
+        catagory: state.catagory.catagory
     }
 }
 export default connect(mapStateToProps, action)(TopNav)
