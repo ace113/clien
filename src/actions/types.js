@@ -5,6 +5,8 @@ export const GET_USER_INFO = 'GET_USER_INFO'
 
 export const GET_CATAGORY = 'GET_CATAGORY'
 
+export const GET_SERVICE = 'GET_SERVICE'
+
 
 export const VENDOR_REGISTER = 'VENDOR_REGISTER'
 

@@ -14,6 +14,8 @@ import {
 import { connect } from 'react-redux'
 import * as action from '../actions/home.actions'
 
+// const param = ({match: { params: {catagory}}})
+
 class Indoor extends Component {
 
     constructor(props) {
@@ -23,8 +25,9 @@ class Indoor extends Component {
         }
         this.componentDidMount = this.componentDidMount.bind(this)
 
-    }
+    } 
 
+    
     componentDidMount() {
         this.props.getcatagory();
 

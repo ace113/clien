@@ -44,6 +44,7 @@ class Home extends Component {
                     <CardTitle>{view.serviceName}</CardTitle>
                     <CardText>
                         <small>{view.location}</small>
+                        <small>{view.type.typeName}</small>
                     </CardText>
                     <div>
                         <Button color="info mb-2">Book Now</Button>

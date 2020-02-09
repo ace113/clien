@@ -16,9 +16,10 @@ export const getdata = () => {
     }
 }
 
-export const getcatagory = () => {
+export const getcatagory = data => {
     return async dispatch => {
-        const data ='Indoor'
+        console.log('params', data)
+        // const data ='Indoor'
         const res = await axios.get(`http://localhost:5000/service/${data}`)
         console.log('res', res)
         dispatch({

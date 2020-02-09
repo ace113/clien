@@ -64,7 +64,7 @@ class TopNav extends Component {
 
         const catagorylist = catagory.map((cata, key)=>{
             return  <NavItem className="ml-2 mr-2" key={cata._id}>
-            <NavLink href={cata.catagoryName}>{cata.catagoryName}</NavLink>
+            <NavLink href={'/component/'+cata.catagoryName}>{cata.catagoryName}</NavLink>
         </NavItem>
         } 
         )
