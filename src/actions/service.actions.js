@@ -10,7 +10,7 @@ export const getservice = (data) => {
 
         dispatch({
             type: GET_SERVICE,
-            payload: res.data
+            payload: res.data.service
         })        
     }
 }

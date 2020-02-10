@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-    Jumbotron,
+    // Jumbotron,
     Card,
     CardImg,
     // CardHeader,
@@ -25,6 +25,7 @@ class Indoor extends Component {
         super(props)
 
         this.state = {
+            
         }
         this.componentDidMount = this.componentDidMount.bind(this)
 
@@ -32,20 +33,21 @@ class Indoor extends Component {
 
 
     componentDidMount() {
-        this.props.getcatagory(this.props.match.params.catagory);
-
+        this.props.getcatagory(this.props.match.params.catagory);        
     }
 
     render() {
 
         const { data } = this.props
-        const indoor = data.map((view, key) => {
-            return <Card style={{ width: '16rem' }} key={view._id} className="ml-4 mb-4 text-center shadow">
+      
+        const indoor = data.map((view, i) => {
+            return <Card style={{ width: '16rem' }} key={i} className="ml-4 mb-4 text-center shadow">
                 <CardImg top width="100%" src="https://upload.wikimedia.org/wikipedia/commons/0/06/Futebol_Salao_Pan2007.jpg" alt="Card image cap" />
                 <CardBody>
                     <CardTitle>{view.serviceName}</CardTitle>
-                    <CardText>
+                    <CardText key={i}>
                         <MdPlace /> <small>{view.location}</small>
+                         {view.type.catagory.catagoryName}
                     </CardText>
                     <div>
                         <Button color="info mb-2">Book Now</Button>
@@ -63,6 +65,8 @@ class Indoor extends Component {
                 <img
                     src="https://www.abbeydaletennisclub.com/media/editor/facilities/facilities-4.jpg"
                     style={{ width: '100%', height: "250px" }}
+                    alt=""   
+                
                 />
 
                 {/* </Jumbotron> */}

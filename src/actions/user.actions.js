@@ -3,7 +3,7 @@ import {
     ERROR,
     USER_LOGIN,
     USER_SIGN_OUT,
-    GET_USER_INFO,
+    // GET_USER_INFO,
     GET_CATAGORY
 } from './types'
 import axios from 'axios'
@@ -90,18 +90,18 @@ export const signout = () => {
     }
 }
 
-export const getUserProfile = () => {
-    return async dispatch => {
-        const res = await axios.get('http://localhost:5000/users/secret')
+// export const getUserProfile = () => {
+//     return async dispatch => {
+//         const res = await axios.get('http://localhost:5000/users/secret')
 
-        console.log('res',res)
+//         // console.log('res',res)
 
-        dispatch({
-            type: GET_USER_INFO,
-            payload: res.data
-        })
-    }
-}
+//         dispatch({
+//             type: GET_USER_INFO,
+//             payload: res.data.user
+//         })
+//     }
+// }
 
 export const getCatagory = () => {
     return async dispatch => {

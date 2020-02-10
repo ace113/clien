@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-    Jumbotron,
+    // Jumbotron,
     Card,
     // CardHeader,
     Button,
@@ -50,7 +50,7 @@ class Home extends Component {
                         <Button color="info mb-2">Book Now</Button>
                     </div>                    
                     <div>                    
-                        <a href="#" className="btn btn-primary">View Details</a>
+                        <a href="/" className="btn btn-primary">View Details</a>
                     </div>                   
                 </CardBody>
             </Card>

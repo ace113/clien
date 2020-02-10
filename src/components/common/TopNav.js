@@ -12,14 +12,14 @@ import {
     DropdownMenu,
     DropdownItem,
     UncontrolledDropdown,
-    NavbarText
+    // NavbarText
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import * as action from '../../actions/user.actions'
-import { GiFootyField } from 'react-icons/gi'
-import { FaDumbbell } from 'react-icons/fa'
-import { FaPlaceOfWorship } from 'react-icons/fa'
-import { IoIosRestaurant } from 'react-icons/io'
+// import { GiFootyField } from 'react-icons/gi'
+// import { FaDumbbell } from 'react-icons/fa'
+// import { FaPlaceOfWorship } from 'react-icons/fa'
+// import { IoIosRestaurant } from 'react-icons/io'
 import { GoBell } from 'react-icons/go'
 import { IoMdMail } from 'react-icons/io'
 import Avatar from 'react-avatar';
@@ -62,9 +62,9 @@ class TopNav extends Component {
 
         const { catagory } = this.props
 
-        const catagorylist = catagory.map((cata, key)=>{
+        const catagorylist = catagory.map(cata=>{
             return  <NavItem className="ml-2 mr-2" key={cata._id}>
-            <NavLink href={'/component/'+cata.catagoryName}>{cata.catagoryName}</NavLink>
+            <NavLink href={'/component/'+cata.catagoryName}  key={cata._id}>{cata.catagoryName}</NavLink>
         </NavItem>
         } 
         )
@@ -104,13 +104,13 @@ class TopNav extends Component {
                         }
                         {this.props.isAuth ?
                             [
-                                <NavItem className="ml-2 mr-2">
+                                <NavItem className="ml-2 mr-2" key="mail">
                                     <IoMdMail color="white" size={20} />
                                 </NavItem>,
-                                <NavItem className="ml-2 mr-2">
+                                <NavItem className="ml-2 mr-2"  key="bell">
                                     <GoBell color="white" size={20} />
                                 </NavItem>,                                
-                                <NavItem className="ml-2 mr-4">
+                                <NavItem className="ml-2 mr-4"  key="profile">
                                     <UncontrolledDropdown>
                                         <DropdownToggle tag="a">
                                             <Avatar color={Avatar.getRandomColor('sitebase', ['red', 'green', 'blue'])} name="Prajwal Maharjan" size="30" round={true} />

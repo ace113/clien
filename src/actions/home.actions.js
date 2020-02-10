@@ -24,7 +24,7 @@ export const getcatagory = data => {
         console.log('res', res)
         dispatch({
             type: GET_DATA_HOME,
-            payload: res.data
+            payload: res.data.catagory
         })     
     }
 }
