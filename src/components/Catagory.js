@@ -33,7 +33,7 @@ class Indoor extends Component {
 
 
     componentDidMount() {
-        this.props.getcatagory(this.props.match.params.catagory);        
+        this.props.getcatagory(this.props.match.params.catagory);               
     }
 
     render() {

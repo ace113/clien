@@ -4,7 +4,9 @@ import {
     FormGroup,
     Input,
     Button,
-    Container
+    Container,
+    Row,
+    Col
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login'
@@ -41,7 +43,7 @@ class UserLogin extends Component {
         })
     }
 
-    async responseGoogle(res) {     
+    async responseGoogle(res) {
         await this.props.oauthGoogle(res.accessToken)
         if (!this.props.errorMessage) {
             this.props.history.push('/')
@@ -59,52 +61,56 @@ class UserLogin extends Component {
         return (
             <div>
                 <Container>
-                    <h4 className="text-center">User Login</h4>                   
-                    <Form onSubmit={this.handleSubmit}>
-                        <FormGroup>
-                            <Input
-                                name="email"
-                                type="email"
-                                id="email"
-                                placeholder="your@email.com"
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                name="password"
-                                type="password"
-                                id="password"
-                                placeholder="Your Password"
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
+                    <Row className="p-5 ml-auto">
+                        <Col md={6}>
+                            <h4 className="text-center">User Login</h4>
+                            <Form onSubmit={this.handleSubmit}>
+                                <FormGroup>
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        id="email"
+                                        placeholder="your@email.com"
+                                        onChange={this.handleChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Input
+                                        name="password"
+                                        type="password"
+                                        id="password"
+                                        placeholder="Your Password"
+                                        onChange={this.handleChange}
+                                    />
+                                </FormGroup>
 
-                        <Button className="btn btn-info btn-block" type="submit">Login</Button>
-                        <a href="/user/register" className="btn btn-info btn-block">Register</a>
-                    </Form>
-                    <div>                       
-                        <FacebookLogin
-                            appId="786108551901872"
-                            textButton="Continue with Facebook"
-                            fields="name, email, picture"
-                            autoLoad={false}
-                            callback={this.responseFacebook}
-                            cssClass="btn btn-primary btn-block mt-2 mb-2"
-                        />
-                         <GoogleLogin
-                            clientId="508374324159-j3nh3sc2h1dgkmtq0b8gksfl73f87h49.apps.googleusercontent.com"
-                            onSuccess={this.responseGoogle}
-                            onFailure={this.responseGoogle}
-                            className="btn btn-danger btn-block"
-                            render={renderProps => (
-                                <button onClick={renderProps.onClick} disabled={renderProps.disabled} 
-                                className="btn btn-danger btn-block mb-2">
-                                <i className="fa fa-google"></i> Continue with google
+                                <Button className="btn btn-info btn-block" type="submit">Login</Button>
+                                <a href="/user/register" className="btn btn-info btn-block">Sign Up</a>
+                            </Form>
+                            <div>
+                                <FacebookLogin
+                                    appId="786108551901872"
+                                    textButton="Continue with Facebook"
+                                    fields="name, email, picture"
+                                    autoLoad={false}
+                                    callback={this.responseFacebook}
+                                    cssClass="btn btn-primary btn-block mt-2 mb-2"
+                                />
+                                <GoogleLogin
+                                    clientId="508374324159-j3nh3sc2h1dgkmtq0b8gksfl73f87h49.apps.googleusercontent.com"
+                                    onSuccess={this.responseGoogle}
+                                    onFailure={this.responseGoogle}
+                                    className="btn btn-danger btn-block"
+                                    render={renderProps => (
+                                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}
+                                            className="btn btn-danger btn-block mb-2">
+                                            <i className="fa fa-google"></i> Continue with google
                                 </button>
-                            )}
-                        />
-                    </div>
+                                    )}
+                                />
+                            </div>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
         )

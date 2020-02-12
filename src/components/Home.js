@@ -43,14 +43,13 @@ class Home extends Component {
                 <CardBody>
                     <CardTitle>{view.serviceName}</CardTitle>
                     <CardText>
-                        <small>{view.location}</small>
-                        <small>{view.type.typeName}</small>
+                        <small>{view.location}</small>                               
                     </CardText>
                     <div>
                         <Button color="info mb-2">Book Now</Button>
                     </div>                    
                     <div>                    
-                        <a href="/" className="btn btn-primary">View Details</a>
+                        <a href={'component/'+view.type.catagory.catagoryName+'/'+view.serviceName} className="btn btn-primary">View Details</a>
                     </div>                   
                 </CardBody>
             </Card>

@@ -51,8 +51,8 @@ class Footer extends Component {
                     <Col md={3}>                        
                         <ul>
                             <li><h6>COMPANY</h6></li>
-                            <li>Contact Us</li>
-                            <li>About Us</li>
+                            <li><a href="/contact-us" style={{color: "inherit", textDecoration: 'none' }}>Contact Us</a></li>
+                            <li><a href="/about-us" style={{color: "inherit", textDecoration: 'none' }}>About Us</a></li>
                         </ul>                        
                         <br />
                         <ul>

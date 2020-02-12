@@ -23,7 +23,7 @@ class Dashboard extends Component {
         const { userinfo } = this.props
         const display = userinfo.map((view, i) => {
             return <div key={i}>
-                <Card>
+                <Card style={{ height: '50vh', padding: '10px'}}>
                     <ul>
                         <li>
                             <h2>Dashboard</h2>
@@ -39,8 +39,8 @@ class Dashboard extends Component {
         return (
             <div>
                 <Container>
-                    <Row >
-                        <Col md={3}>
+                    <Row className="p-5">
+                        <Col md={4}>
                             {display}
 
                         </Col>

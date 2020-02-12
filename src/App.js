@@ -19,6 +19,8 @@ import VendorRegister from './components/vendors/VendorRegister';
 import Dashboard from './components/users/Dashboard';
 import Catagory from './components/Catagory';
 import Service from './components/Service';
+import ContactUs from './components/ContactUs';
+import AfterRegister from './components/vendors/AfterRegister';
 
 
 
@@ -54,6 +56,7 @@ function App() {
           <PublicRoute path="/user/register" component={UserRegister}/>
           <PublicRoute path="/user/login" component={UserLogin}/>
           <PublicRoute path="/vendor/register" component={VendorRegister}/>
+          <PublicRoute path="/contact-us" component={ContactUs} />
 
           <PublicRoute exact path="/component/:catagory/:service" component={Service} />
           <PublicRoute exact path="/component/:catagory" component={Catagory} />
@@ -67,7 +70,7 @@ function App() {
           <PublicRoute path="/resturant/" component={Resturant} />  */}         
  
           
-          
+          <InvalidRoute path="/after-register" component={AfterRegister}/>
           <InvalidRoute path="/verifyemail" component={UserEmailConfirmation}/>
 
           <InvalidRoute path="*" component={PageNotFound} />

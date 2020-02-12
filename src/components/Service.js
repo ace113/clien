@@ -52,6 +52,10 @@ export class Service extends Component {
                         <CardText>Map(Geolocation)</CardText>
                     </Card>
 
+                    <Card className="mb-3">                        
+                        <CardText>Image Gallery</CardText>
+                    </Card>
+
                     <Card className="mb-3">
                         <CardText>Review and Comments</CardText>
                     </Card>
